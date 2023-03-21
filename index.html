@@ -10,13 +10,25 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script>
-                var vides = 7;				
+                var vides = 7;
+                var paraules = ["fetge", "forca", " jujtges", "mengen", "penjat", "quinta", "setze"];
+                var pistes = ["A la quinta forca",
+                "A ca un penjat, no hi anomenis cordes",
+                "Setze jutges d'un jutjat mengen fetge d'un penjat"]
+                var paulespistes = [1,2,0,2,2,2,1,0,1] 
+                
+                var palabra = paraules[Math.floor(Math.random() * paraules.length)];
+                var pos = palabra.indexof(letra);
+                var endevinades = [];
+                for (var i = 0 ; i < palabra.length; i++) { 
+                    endevinades[i] = "_";
+                }
 
                 function Comprovar(){
 			var palabra = document.getElementById("palabra").value;
                         var letra = document.getElementById("letra").value;
 
-                if (letra <= "m"){
+                if (letra >= "-1") {
                     if (document.getElementById("palabra").innerHTML == "_ _ _ _ _ _ _")
                        {document.getElementById("palabra").innerHTML = "";}
                     document.getElementById("palabra").innerHTML = 
