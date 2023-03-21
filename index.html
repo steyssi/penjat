@@ -14,21 +14,21 @@ and open the template in the editor.
                 var paraules = ["fetge", "forca", " jujtges", "mengen", "penjat", "quinta", "setze"];
                 var pistes = ["A la quinta forca",
                 "A ca un penjat, no hi anomenis cordes",
-                "Setze jutges d'un jutjat mengen fetge d'un penjat"]
+                "Setze jutges d'un jutjat mengen fetge d'un penjat"];
                 var paulespistes = [1,2,0,2,2,2,1,0,1] 
-                
-                var palabra = paraules[Math.floor(Math.random() * paraules.length)];
-                var pos = palabra.indexof(letra);
-                var endevinades = [];
+               
+                var aleatori = paraules[Math.floor(Math.random() * paraules.length)];
+                var endevinades = ["_","_","_","_","_","_","_"];
                 for (var i = 0 ; i < palabra.length; i++) { 
                     endevinades[i] = "_";
                 }
 
                 function Comprovar(){
-			var palabra = document.getElementById("palabra").value;
-                        var letra = document.getElementById("letra").value;
-
-                if (letra >= "-1") {
+                // var palabra = document.getElementById("palabra").value;
+                var letra = document.getElementById("letra").value;
+                
+                var pos = palabra.indexof(letra);
+                if (pos >= "-1") {
                     if (document.getElementById("palabra").innerHTML == "_ _ _ _ _ _ _")
                        {document.getElementById("palabra").innerHTML = "";}
                     document.getElementById("palabra").innerHTML = 
