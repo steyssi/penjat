@@ -10,18 +10,27 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script>
+                var endevinades = [];
+                var fallades = ["_","_","_","_","_","_","_"];
                 var vides = 7;
+                
+                // Relación entre palabras y pistas.
                 var paraules = ["fetge", "forca", " jujtges", "mengen", "penjat", "quinta", "setze"];
                 var pistes = ["A la quinta forca",
                 "A ca un penjat, no hi anomenis cordes",
                 "Setze jutges d'un jutjat mengen fetge d'un penjat"];
                 var paulespistes = [1,2,0,2,2,2,1,0,1] 
                
-                var aleatori = paraules[Math.floor(Math.random() * paraules.length)];
-                var endevinades = ["_","_","_","_","_","_","_"];
+               // Escoge una de las palabras
+                var aleatori = Math.floor(Math.random() * paraules.length);
+                var paraula = paraules[aleatori];
+                var pista = pistes[paraulespistes[aleatori]];
+                
+                // Pondrá guiones bajos segun las letras que contenga la palabra escogida
                 for (var i = 0 ; i < palabra.length; i++) { 
                     endevinades[i] = "_";
                 }
+                
 
                 function Comprovar(){
                 // var palabra = document.getElementById("palabra").value;
@@ -33,6 +42,15 @@ and open the template in the editor.
                        {document.getElementById("palabra").innerHTML = "";}
                     document.getElementById("palabra").innerHTML = 
                     document.getElementById("palabra").innerHTML + letra + " ";
+            
+                    //Sustitución de guion por letra correcta
+                    for (var i = pos; i < paraula.length; i++) {
+                        if (paraula[i]== letra){
+                            endevinades[i]= letra;
+                        }
+                    }
+                    document.getElementById("palabra").innerHTML = endevinades;
+
                     document.getElementById("miau").play ();
                 }
 
@@ -66,11 +84,12 @@ and open the template in the editor.
                          document.getElementById("ahorcado_1").hidden = true; 
                     }
                     document.getElementById("boom_cloud").play ();
-            } 
-            if (vides == 0){
-                document.body.style.backgroundImage = "url('img/Castle2.png')";
-            }
-        }
+                    } 
+                    if (vides == 0){
+                    document.body.style.backgroundImage = "url('img/Castle2.png')";
+                    }
+                }
+                
                 function AmagaImg(){
                     document.getElementById("ahorcado_6").hidden = true;
                     document.getElementById("ahorcado_5").hidden = true;
@@ -82,14 +101,13 @@ and open the template in the editor.
                 }
                 
                 function AmagaAud (){
-                    
                 }
 
         </script>
     </head>
     <body onload="AmagaImg();"
           style="background-image: url('img/Desert.png');
-                 background-size: 640px 480px; background_repeat: no-repeat;">
+                 background-size: 640px 480px; background-repeat: no-repeat;">
         <h1>Prototip Joc del Penjat</h1>
         <input id="letra" type="text"
                placeholder= "Escriu una lletra minuscula"/>
