@@ -1,3 +1,4 @@
+                // Variables Globales
                 var endevinades = [];
                 var fallades = ["_","_","_","_","_","_","_"];
                 var vides = 7;
@@ -7,22 +8,23 @@
                 var pistes = ["A la quinta forca",
                 "A ca un penjat, no hi anomenis cordes",
                 "Setze jutges d'un jutjat mengen fetge d'un penjat"];
-                var paulespistes = [1,2,0,2,2,2,1,0,1] 
+                var paraulespistes = [1,2,0,2,2,2,1,0,1];
                
-               // Escoge una de las palabras
+               // Escoge una de las palabras aleatoriamente
                 var aleatori = Math.floor(Math.random() * paraules.length);
                 var paraula = paraules[aleatori];
                 var pista = pistes[paraulespistes[aleatori]];
-                
+               
                 // Pondrá guiones bajos segun las letras que contenga la palabra escogida
-                for (var i = 0 ; i < palabra.length; i++) { 
+                for (var i = 0; i < paraula.length; i++) { 
                     endevinades[i] = "_";
                 }
                 
-
+                
                 function Comprovar(){
                 // var palabra = document.getElementById("palabra").value;
                 var letra = document.getElementById("letra").value;
+                document.getElementById("letra").value = "";
                 
                 var pos = paraula.indexOf(letra);
                  window.alert(paraula);
@@ -44,8 +46,12 @@
                     document.getElementById("palabra").innerHTML = endevinades;
                     
                     document.getElementById("miau").play ();
+                    if (endevinades.indexOf("_") == -1 ) {
+                        document.body.style.backgroundImage = "url('img/Party.png')";
+                        window.alert("has guanyat");
+                    }
                 }
-
+                
                 else {
                     
                     fallades[7 - vides] = letra;
@@ -85,6 +91,7 @@
                     } 
                     if (vides == 0){
                     document.body.style.backgroundImage = "url('img/Castle2.png')";
+                    window.alert("has perdut");
                     }
                 }
                 
