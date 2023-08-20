@@ -26,7 +26,10 @@
                 var letra = document.getElementById("letra").value;
                 document.getElementById("letra").value = "";
 
-                
+                var indicePalabraActual = paraules.indexOf(paraula);
+                var indicePistaActual = paraulespistes[indicePalabraActual];
+                var pistaActual = pistes[indicePistaActual];
+                window.alert("Pista: " + pistaActual);
                 
                 if (fallades.includes(letra)) {
                   window.alert ("Ja has utilitzat aquesta lletra");
