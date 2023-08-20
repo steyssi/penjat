@@ -25,7 +25,13 @@
                 // var palabra = document.getElementById("palabra").value;
                 var letra = document.getElementById("letra").value;
                 document.getElementById("letra").value = "";
+
                 
+                
+                if (fallades.includes(letra)) {
+                  window.alert ("Ja has utilitzat aquesta lletra");
+                  return;
+                  
                 var pos = paraula.indexOf(letra);
                  window.alert(paraula);
                 if (pos > -1) {
