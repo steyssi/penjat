@@ -47,8 +47,8 @@
                     }
                     window.alert('letra' + " has encertat ");
                     document.getElementById("palabra").innerHTML = endevinades;
-                    
                     document.getElementById("miau").play ();
+                  
                     if (endevinades.indexOf("_") == -1 ) {
                         document.body.style.backgroundImage = "url('img/Party.png')";
                         window.alert("has guanyat");
