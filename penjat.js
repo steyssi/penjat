@@ -22,10 +22,10 @@
                 
                 
                 function Comprovar(){
-                // var palabra = document.getElementById("palabra").value;
                 var letra = document.getElementById("letra").value;
                 document.getElementById("letra").value = "";
 
+                //
                 var indicePalabraActual = paraules.indexOf(paraula);
                 var indicePistaActual = paraulespistes[indicePalabraActual];
                 var pistaActual = pistes[indicePistaActual];
@@ -38,13 +38,7 @@
                 var pos = paraula.indexOf(letra);
                  window.alert(paraula);
                 if (pos > -1) {
-                    /*
-                    if (document.getElementById("palabra").innerHTML == "_ _ _ _ _ _ _")
-                      {document.getElementById("palabra").innerHTML = "";}
-                    document.getElementById("palabra").innerHTML = 
-                    document.getElementById("palabra").innerHTML + letra + " ";
-                    */
-            
+                
                     //Sustitución de guion por letra correcta
                     for (var i = pos; i < paraula.length; i++) {
                         if (paraula[i]== letra){
@@ -65,13 +59,6 @@
                     
                     fallades[7 - vides] = letra;
                     document.getElementById("resultat").innerHTML = fallades;
-                    
-                    /*
-                    if (document.getElementById("resultat").innerHTML == "_ _ _ _ _ _ _")
-                       {document.getElementById("resultat").innerHTML = "";}
-                    document.getElementById("resultat").innerHTML = 
-                    document.getElementById("resultat").innerHTML + letra + " ";
-                    */
 
                     vides = vides - 1;
                     document.getElementById("vides").innerHTML = vides;
