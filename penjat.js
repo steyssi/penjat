@@ -1,56 +1,58 @@
-                // Variables Globales
+                // Variables Globals
                 var endevinades = [];
                 var fallades = ["_","_","_","_","_","_","_"];
                 var vides = 7;
                 
-                // Relación entre palabras y pistas.
+                // Relació entre paraules y pistes.
                 var paraules = ["fetge", "forca", " jujtges", "mengen", "penjat", "quinta", "setze"];
                 var pistes = ["A la quinta forca",
                 "A ca un penjat, no hi anomenis cordes",
                 "Setze jutges d'un jutjat mengen fetge d'un penjat"];
                 var paraulespistes = [1,2,0,2,2,2,1,0,1];
                
-               // Escoge una de las palabras aleatoriamente
+               // Escull una de les paraules aleatoriament
                 var aleatori = Math.floor(Math.random() * paraules.length);
                 var paraula = paraules[aleatori];
                 var pista = pistes[paraulespistes[aleatori]];
                
-                // Pondrá guiones bajos segun las letras que contenga la palabra escogida
+                // Posará guions baixos segons les lletres que contengui la paraula escollida
                 for (var i = 0; i < paraula.length; i++) { 
                     endevinades[i] = "_";
                 }
                 
                 
                 function Comprovar(){
-                var letra = document.getElementById("letra").value;
-                document.getElementById("letra").value = "";
+                var lletra = document.getElementById("lletra").value;
+                document.getElementById("lletra").value = "";
 
-                //
+                // Mostra la pista sengons la paraula escollida
                 var indexParaula = paraules.indexOf(paraula);
                 var indexPista = paraulespistes[indexParaula];
                 var pistaActual = pistes[indexPista];
                 window.alert("Pista: " + pistaActual);
-                
-                if (fallades.includes(letra)) {
+
+                // No compta les paraules fallades ja utilitzades
+                if (fallades.includes(lletra)) {
                   window.alert ("Ja has utilitzat aquesta lletra");
                   return;
                   
-                var pos = paraula.indexOf(letra);
+                var pos = paraula.indexOf(lletra);
                 
                 if (pos > -1) {
                 
-                    //Sustitución de guion por letra correcta
+                    //Sustitució de guió per lletra correcta
                     for (var i = pos; i < paraula.length; i++) {
-                        if (paraula[i]== letra){
-                            endevinades[i]= letra;
+                        if (paraula[i]== lletra){
+                            endevinades[i]= lletra;
                         }
                     }
-                    window.alert('letra' + " has encertat ");
+                  
+                    window.alert('lletra' + " has encertat ");
                     document.getElementById("palabra").innerHTML = endevinades;
                     document.getElementById("miau").play ();
                   
                     if (endevinades.indexOf("_") == -1 ) {
-                        document.body.style.backgroundImage = "url('img/Party.png')";
+                        document.body.style.backgroundImage = "escenario_party.png";
                         window.alert("has guanyat");
                     }
                 }
@@ -86,7 +88,7 @@
                     document.getElementById("boom_cloud").play();
                     } 
                     if (vides == 0){
-                    document.body.style.backgroundImage = "url('img/Castle2.png')";
+                    document.body.style.backgroundImage = "escenario_cementario.png";
                     window.alert("has perdut");
                     }
                 }
