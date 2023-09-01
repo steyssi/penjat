@@ -26,9 +26,9 @@
                 document.getElementById("letra").value = "";
 
                 //
-                var indicePalabraActual = paraules.indexOf(paraula);
-                var indicePistaActual = paraulespistes[indicePalabraActual];
-                var pistaActual = pistes[indicePistaActual];
+                var indexParaula = paraules.indexOf(paraula);
+                var indexPista = paraulespistes[indexParaula];
+                var pistaActual = pistes[indexPista];
                 window.alert("Pista: " + pistaActual);
                 
                 if (fallades.includes(letra)) {
@@ -36,7 +36,7 @@
                   return;
                   
                 var pos = paraula.indexOf(letra);
-                 window.alert(paraula);
+                
                 if (pos > -1) {
                 
                     //Sustitución de guion por letra correcta
